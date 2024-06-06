@@ -11,11 +11,10 @@ module profile(l=700, h=10, w=60) {
     p = trapezoid(h=h, w1=w, w2=w/3, rounding=[w/2,w/2,1,1]);
     
     diff("socket")
-    linear_sweep(p, height=l)
+    linear_sweep(p, height=l, orient=RIGHT, spin=90, center=true)
     tag("socket"){
         attach([BOT,TOP]) snap_pin_socket("standard");
     }
 }
 
-rotate([90, 0, 0])
 profile(l=length, h=height, w=width);
