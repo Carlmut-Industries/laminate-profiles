@@ -1,7 +1,7 @@
 include <BOSL2/std.scad>
 include <BOSL2/joiners.scad>
 
-$fn=64;
+$fn=128;
 
 length = 700/3;
 height = 10;
@@ -13,7 +13,8 @@ module profile(l=700, h=10, w=60) {
     diff("socket")
     linear_sweep(p, height=l, orient=RIGHT, spin=90, center=true)
     tag("socket"){
-        attach([BOT,TOP]) snap_pin_socket("standard");
+        xflip_copy()
+        attach([BOT,TOP]) right(6) snap_pin_socket("standard");
     }
 }
 
